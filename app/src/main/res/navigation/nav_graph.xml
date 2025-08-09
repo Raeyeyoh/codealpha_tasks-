@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/category">
+
+    <fragment
+        android:id="@+id/display_frag"
+        android:name="com.example.flashcard_quiz.Display_frag"
+        android:label="fragment_display_frag"
+        tools:layout="@layout/fragment_display_frag">
+        <argument
+            android:name="idofcategory"
+            app:argType="long"
+            android:defaultValue="1L"/>
+        <action android:id="@+id/dis_to_edit_or_add"
+            app:destination="@+id/editAndAdd_frag"/>
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/editAndAdd_frag"
+        android:name="com.example.flashcard_quiz.EditAndAdd_frag"
+        android:label="fragment_edit_and_add_frag"
+        tools:layout="@layout/fragment_edit_and_add_frag">
+        <argument
+            android:name="idofcard"
+            android:defaultValue="1L"
+            app:argType="long"/>
+        <argument
+            android:name="cateId"
+            app:argType="long"
+            android:defaultValue="1L"/>
+    </fragment>
+    <fragment
+        android:id="@+id/category"
+        android:name="com.example.flashcard_quiz.Category_frag"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_category_to_display_frag"
+            app:destination="@id/display_frag" />
+
+    </fragment>
+</navigation>
